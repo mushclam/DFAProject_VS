@@ -19,9 +19,11 @@ public:
 	vector<int> finalState;
 
 	vector<vector<edge>> graph;
+	vector<int> searchStack;
 
 	void createGraph();
-	void arrangeGraph(int);
+	void initRemove();
+	int removeEdges(int, int);
 };
 
 #endif // !DFA_H

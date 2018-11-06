@@ -12,7 +12,16 @@ int main(int argc, char *argv[])
 	reader.parse();
 	myDFA = reader.get();
 
+	for (int i = 0; i < myDFA.state.size(); i++)
+	{
+		std::cout << myDFA.state[i] << std::endl;
+	}
 	myDFA.createGraph();
+	myDFA.initRemove();
+	for (int i = 0; i < myDFA.state.size(); i++)
+	{
+		std::cout << myDFA.state[i] << std::endl;
+	}
 
 	return 0;
 }
