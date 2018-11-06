@@ -70,14 +70,14 @@ bool DFAReader::parse()
 		}
 	}
 
-	// Save transition in json to DFA
+	// Save transitions in json to DFA
 	const Json::Value &transitions = value["transition"];
 	int transitionSize = transitions.size();
 	if (transitionSize <= 0) {
 		cout << "Transition must be assigned at least ONE!" << endl;
 		exit(1);
 	}
-	tmpDFA.transition.reserve(transitionSize);
+	tmpDFA.transitions.reserve(transitionSize);
 	for (int i = 0; i < transitionSize; i++)
 	{
 		const Json::Value &edge = transitions[i];
@@ -95,7 +95,7 @@ bool DFAReader::parse()
 			_tmpTrans.symbol = indexSymbol;
 			_tmpTrans.destination = indexDest;
 
-			tmpDFA.transition.push_back(_tmpTrans);
+			tmpDFA.transitions.push_back(_tmpTrans);
 		}
 		else {
 			cout << edge << "does NOT HAVE correct transition form or value!" << endl;

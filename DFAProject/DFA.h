@@ -14,7 +14,7 @@ class DFA
 public:
 	vector<string> state;
 	vector<string> symbol;
-	vector<transition> transition;
+	vector<transition> transitions;
 	int startState;
 	vector<int> finalState;
 

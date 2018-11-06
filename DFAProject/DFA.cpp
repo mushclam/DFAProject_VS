@@ -6,11 +6,11 @@ void DFA::createGraph()
 	for (int i = 0; i < state.size(); i++)
 	{
 		vector<edge> edges;
-		for (int j = 0; j < transition.size(); j++)
+		for (int j = 0; j < transitions.size(); j++)
 		{
-			if (transition[j].departure == i)
+			if (transitions[j].departure == i)
 			{
-				edge _tmpEdge(transition[j].symbol, transition[j].destination);
+				edge _tmpEdge(transitions[j].symbol, transitions[j].destination);
 				edges.push_back(_tmpEdge);
 			}
 		}
