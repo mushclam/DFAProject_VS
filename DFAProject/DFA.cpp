@@ -94,3 +94,9 @@ int DFA::removeEdges(int start, int search)
 	searchStack.clear();
 	return -1;
 }
+
+void DFA::initMark()
+{
+	vector<int> _tmpDist = finalState;
+
+}

@@ -21,9 +21,13 @@ public:
 	vector<vector<edge>> graph;
 	vector<int> searchStack;
 
+	vector<vector<int>> mark;
+
 	void createGraph();
 	void initRemove();
 	int removeEdges(int, int);
+
+	void initMark();
 };
 
 #endif // !DFA_H
