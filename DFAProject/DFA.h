@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <algorithm>
 #include "transition.h"
 
 #pragma once
