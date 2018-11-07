@@ -1,22 +1,24 @@
 ﻿  DFA.cpp
 c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(6): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(9): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(10): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
 c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(32): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(51): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(59): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(61): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(73): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(78): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
-  DFAReader.cpp
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(38): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(62): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(91): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(111): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(139): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  main.cpp
-c:\users\j to the w\source\repos\dfaproject\dfaproject\main.cpp(15): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\j to the w\source\repos\dfaproject\dfaproject\main.cpp(21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다...
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(35): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(54): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(62): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(64): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(76): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(81): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(103): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(110): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(113): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(117): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(128): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(130): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(135): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(137): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(146): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(157): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(160): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(166): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
   DFAProject.vcxproj -> C:\Users\J to the W\Source\Repos\DFAProject\Debug\DFAProject.exe

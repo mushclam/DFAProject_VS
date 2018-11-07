@@ -77,6 +77,10 @@ bool DFAReader::parse()
 		cout << "Transition must be assigned at least ONE!" << endl;
 		exit(1);
 	}
+	else if (transitionSize != stateSize * symbolSize)
+	{
+		cout << "Input Automata is NOT DFA! Enter correct transitions!" << endl;
+	}
 	tmpDFA.transitions.reserve(transitionSize);
 	for (int i = 0; i < transitionSize; i++)
 	{

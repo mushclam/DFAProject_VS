@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <utility>
 #include "transition.h"
 
 #pragma once
@@ -18,10 +19,11 @@ public:
 	int startState;
 	vector<int> finalState;
 
-	vector<vector<edge>> graph;
+	vector<vector<int>> graph;
 	vector<int> searchStack;
 
-	vector<vector<int>> mark;
+	vector<pair<int, int>> mark;
+	vector<vector<int>> eqclass;
 
 	void createGraph();
 	void initRemove();
