@@ -31,6 +31,8 @@ public:
 	int removeEdges(int, int);
 
 	void initMark();
+
+	DFA initReduce();
 };
 
 #endif // !DFA_H

@@ -1,4 +1,9 @@
 #include "DFA.h"
+#include <sstream>
+#include <iostream>
+
+using namespace std;
+
 
 void DFA::createGraph()
 {
@@ -28,6 +33,7 @@ void DFA::createGraph()
 		}
 	}
 }
+
 
 void DFA::initRemove()
 {
@@ -97,6 +103,7 @@ int DFA::removeEdges(int start, int search)
 	searchStack.clear();
 	return -1;
 }
+
 
 void DFA::initMark()
 {
@@ -185,4 +192,95 @@ void DFA::initMark()
 		}
 		cout << endl;
 	}
+}
+
+
+DFA DFA::initReduce(){
+	//length of str should not be less than the number of reduced states. 
+	//initReduce should be executed after initMark.
+	DFA tmp_reducedDFA;
+	vector<string> reduced_state;
+	vector<transition> reduced_transitions;
+	int reduced_startState;
+	vector<int> reduced_finalState;
+	ostringstream ostr;
+
+	for (auto s : eqclass)
+	{
+		//find initial state
+		if (find(s.begin(), s.end(), startState) != s.end())
+		{ 	
+			reduced_startState = 0;
+			for (int i = 0; i < s.size(); i++)
+			{
+				reduced_startState = reduced_startState * 10 + s[i];
+			}
+		}
+		else
+		{
+			//find final state
+			for (int i = 0; i < finalState.size(); i++)
+			{
+				if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
+				{
+					int finState = 0;
+					for (int j = 0; j < s.size(); j++)
+						finState = finState * 10 + s[j];
+					reduced_finalState.push_back(finState);
+					break;
+				}			
+		
+			}
+		}
+
+		//find reduced transition
+		for (transition t : transitions)
+		{		
+			if (s[0] == t.departure)
+			{	 
+				int tmpState = 0;
+				int tmpState2 = 0;
+				for (int i = 0; i < s.size(); i++)
+					tmpState = tmpState * 10 + s[i];
+				for (auto s2 : eqclass)
+				{
+					if (find(s2.begin(), s2.end(), t.destination) != s2.end())         
+						for (int j = 0; j < s2.size(); j++)
+						{
+							tmpState2 = tmpState2 * 10 + s2[j];
+				
+						}
+				}
+					
+				transition tmpTrans;
+				tmpTrans.departure = tmpState;
+				tmpTrans.symbol = t.symbol;
+				tmpTrans.destination = tmpState2;
+				reduced_transitions.push_back(tmpTrans);
+			}		
+		}	
+	}
+	/*
+	//put eqclass into vector<string> reduced_state
+	for (int i = 0; i < eqclass.size(); i++)
+	{
+		ostr.str("");
+		ostr.clear();
+		for (int j = 1; j < eqclass[i].size(); j++)
+		{
+			cout << "eqclass[" << i << "][" << j << "] = " << eqclass[i][j] << endl;
+			ostr << eqclass[i][j];
+		}
+		reduced_state[i] = ostr.str();
+		cout << "Each reduced state is " << reduced_state[i] << endl;
+
+	}
+	*/
+	tmp_reducedDFA.state = reduced_state;
+	tmp_reducedDFA.symbol = symbol;
+	tmp_reducedDFA.transitions = reduced_transitions;
+	tmp_reducedDFA.startState = reduced_startState;
+	tmp_reducedDFA.finalState = reduced_finalState;
+
+	return tmp_reducedDFA;
 }
