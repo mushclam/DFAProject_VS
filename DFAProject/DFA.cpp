@@ -196,7 +196,6 @@ void DFA::initMark()
 
 
 DFA DFA::initReduce(){
-	//length of str should not be less than the number of reduced states. 
 	//initReduce should be executed after initMark.
 	DFA tmp_reducedDFA;
 	vector<string> reduced_state;
@@ -216,21 +215,17 @@ DFA DFA::initReduce(){
 				reduced_startState = reduced_startState * 10 + s[i];
 			}
 		}
-		else
-		{
 			//find final state
-			for (int i = 0; i < finalState.size(); i++)
+		for (int i = 0; i < finalState.size(); i++)
+		{
+			if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
 			{
-				if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
-				{
-					int finState = 0;
-					for (int j = 0; j < s.size(); j++)
-						finState = finState * 10 + s[j];
-					reduced_finalState.push_back(finState);
-					break;
-				}			
-		
-			}
+				int finState = 0;
+				for (int j = 0; j < s.size(); j++)
+					finState = finState * 10 + s[j];
+				reduced_finalState.push_back(finState);
+				break;
+			}			
 		}
 
 		//find reduced transition
@@ -246,10 +241,7 @@ DFA DFA::initReduce(){
 				{
 					if (find(s2.begin(), s2.end(), t.destination) != s2.end())         
 						for (int j = 0; j < s2.size(); j++)
-						{
 							tmpState2 = tmpState2 * 10 + s2[j];
-				
-						}
 				}
 					
 				transition tmpTrans;

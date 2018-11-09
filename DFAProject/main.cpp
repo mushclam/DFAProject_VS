@@ -60,7 +60,7 @@ void printDFA(DFA DFA_to_print)
 
 int main(int argc, char *argv[])
 {
-	DFAReader reader("dfa.json");
+	DFAReader reader(argv[1]);
 	DFA myDFA;
 	DFA reducedDFA;
 	reader.parse();
