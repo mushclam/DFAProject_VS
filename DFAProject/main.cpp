@@ -65,7 +65,22 @@ void printDFA(DFA DFA_to_print)
 
 int main(int argc, char *argv[])
 {
-	DFAReader reader("dfa3.json");
+	auto targetFile = "dfa.json";
+	
+	if (argc == 2)
+		targetFile = argv[1];
+	
+	if (argc > 2)
+	{
+		cout << "Please enter a single JSON file." << endl;
+		cout << "If you don't enter any file, DFA from \"dfa.json\" will be minimized." << endl;
+		cout << "Usage: ./DFAminimal <\"targetFile.json\">" << endl;
+		return 1;
+	}
+
+	if(argc == 1)
+		cout << "You didn't enter any file. DFA from \"dfa.json\" will be minimized.\n" << endl;
+	DFAReader reader(targetFile);
 	DFA myDFA;
 	DFA reducedDFA;
 	reader.parse();
