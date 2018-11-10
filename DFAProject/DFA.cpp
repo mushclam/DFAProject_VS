@@ -252,22 +252,23 @@ DFA DFA::initReduce(){
 			}		
 		}	
 	}
-	/*
+	
+	reduced_state.reserve(eqclass.size());
 	//put eqclass into vector<string> reduced_state
 	for (int i = 0; i < eqclass.size(); i++)
 	{
 		ostr.str("");
 		ostr.clear();
-		for (int j = 1; j < eqclass[i].size(); j++)
+		for (int j = 0; j < eqclass[i].size(); j++)
 		{
 			cout << "eqclass[" << i << "][" << j << "] = " << eqclass[i][j] << endl;
 			ostr << eqclass[i][j];
 		}
-		reduced_state[i] = ostr.str();
+		reduced_state.push_back(ostr.str());
 		cout << "Each reduced state is " << reduced_state[i] << endl;
 
 	}
-	*/
+	
 	tmp_reducedDFA.state = reduced_state;
 	tmp_reducedDFA.symbol = symbol;
 	tmp_reducedDFA.transitions = reduced_transitions;
