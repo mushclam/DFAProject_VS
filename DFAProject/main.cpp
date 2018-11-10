@@ -65,7 +65,7 @@ void printDFA(DFA DFA_to_print)
 
 int main(int argc, char *argv[])
 {
-	auto targetFile = "dfa.json";
+	auto targetFile = "dfa3.json";
 	
 	if (argc == 2)
 		targetFile = argv[1];

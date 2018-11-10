@@ -49,5 +49,11 @@
     <None Include="dfa.json">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="dfa3.json">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="dfa2.json">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>

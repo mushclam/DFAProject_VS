@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 void DFA::createGraph()
 {
 	graph.resize(state.size());
@@ -37,7 +36,10 @@ void DFA::createGraph()
 
 void DFA::initRemove()
 {
+	vector<int> changePos(state.size(), -1);
 	vector<string> _tmpState;
+	vector<transition> _tmpTransitions;
+
 	for (int i = 0; i < state.size(); i++)
 	{
 		cout << "initRemove[" << i << "]: " << endl;
@@ -45,13 +47,63 @@ void DFA::initRemove()
 		if (result > 0)
 		{
 			_tmpState.push_back(state[i]);
+			changePos[i] = distance(_tmpState.begin(), _tmpState.end()) - 1;
 		}
 		else
 		{
 			cout << "Inaccessible State [" << i << "] is Removed!" << endl;
 		}
 	}
+
 	state = _tmpState;
+
+	if (changePos[startState] >= 0)
+	{
+		startState = changePos[startState];
+	}
+
+	for (int i = 0; i < transitions.size(); i++)
+	{
+		transition _tmpTrans;
+		int _tmpDepart;
+		int _tmpSymbol = transitions[i].symbol;
+		int _tmpDest;
+
+		if (changePos[transitions[i].departure] >= 0)
+		{
+			_tmpDepart = changePos[transitions[i].departure];
+		}
+		else {
+			_tmpDepart = -1;
+		}
+
+		if (changePos[transitions[i].destination >= 0])
+		{
+			_tmpDest = changePos[transitions[i].destination];
+		}
+		else {
+			_tmpDest = -1;
+		}
+
+		if (_tmpDepart >= 0 && _tmpDest >= 0)
+		{
+			_tmpTrans.set(_tmpDepart, _tmpSymbol, _tmpDest);
+			_tmpTransitions.push_back(_tmpTrans);
+		}
+	}
+	transitions = _tmpTransitions;
+
+	vector<int> _tmpFinalState;
+	for (int i = 0; i < finalState.size(); i++)
+	{
+		if (changePos[finalState[i]] >= 0)
+		{
+			_tmpFinalState.push_back(changePos[finalState[i]]);
+		}
+	}
+	finalState = _tmpFinalState;
+
+	createGraph();
 }
 
 int DFA::removeEdges(int start, int search)
@@ -188,7 +240,7 @@ void DFA::initMark()
 	{
 		for (auto i : eq)
 		{
-			cout << i;
+			cout << state[i];
 		}
 		cout << endl;
 	}
@@ -213,8 +265,8 @@ DFA DFA::initReduce(){
 		ostr.clear();
 		for (int j = 0; j < eqclass[i].size(); j++)
 		{
-			cout << "eqclass[" << i << "][" << j << "] = " << eqclass[i][j] << endl;
-			ostr << eqclass[i][j];
+			cout << "eqclass[" << i << "][" << j << "] = " << state[eqclass[i][j]] << endl;
+			ostr << state[eqclass[i][j]];
 		}
 		reduced_state.push_back(ostr.str());
 		cout << "Each reduced state is " << reduced_state[i] << endl;
