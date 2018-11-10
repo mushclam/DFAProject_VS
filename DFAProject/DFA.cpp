@@ -203,56 +203,8 @@ DFA DFA::initReduce(){
 	int reduced_startState;
 	vector<int> reduced_finalState;
 	ostringstream ostr;
+	int counter = 0;
 
-	for (auto s : eqclass)
-	{
-		//find initial state
-		if (find(s.begin(), s.end(), startState) != s.end())
-		{ 	
-			reduced_startState = 0;
-			for (int i = 0; i < s.size(); i++)
-			{
-				reduced_startState = reduced_startState * 10 + s[i];
-			}
-		}
-			//find final state
-		for (int i = 0; i < finalState.size(); i++)
-		{
-			if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
-			{
-				int finState = 0;
-				for (int j = 0; j < s.size(); j++)
-					finState = finState * 10 + s[j];
-				reduced_finalState.push_back(finState);
-				break;
-			}			
-		}
-
-		//find reduced transition
-		for (transition t : transitions)
-		{		
-			if (s[0] == t.departure)
-			{	 
-				int tmpState = 0;
-				int tmpState2 = 0;
-				for (int i = 0; i < s.size(); i++)
-					tmpState = tmpState * 10 + s[i];
-				for (auto s2 : eqclass)
-				{
-					if (find(s2.begin(), s2.end(), t.destination) != s2.end())         
-						for (int j = 0; j < s2.size(); j++)
-							tmpState2 = tmpState2 * 10 + s2[j];
-				}
-					
-				transition tmpTrans;
-				tmpTrans.departure = tmpState;
-				tmpTrans.symbol = t.symbol;
-				tmpTrans.destination = tmpState2;
-				reduced_transitions.push_back(tmpTrans);
-			}		
-		}	
-	}
-	
 	reduced_state.reserve(eqclass.size());
 	//put eqclass into vector<string> reduced_state
 	for (int i = 0; i < eqclass.size(); i++)
@@ -266,9 +218,56 @@ DFA DFA::initReduce(){
 		}
 		reduced_state.push_back(ostr.str());
 		cout << "Each reduced state is " << reduced_state[i] << endl;
-
 	}
-	
+
+	for (auto s : eqclass)
+	{
+		//find initial state
+		if (find(s.begin(), s.end(), startState) != s.end())
+		{ 	
+			reduced_startState = counter;
+			cout << "reduced_startState: " << counter << endl;
+		}
+
+		//find final state
+		for (int i = 0; i < finalState.size(); i++)
+		{
+			if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
+			{
+				cout << "reduced_finalState: " << counter << endl;
+				reduced_finalState.push_back(counter);
+				break;
+			}			
+		}
+
+		//find reduced transition
+		for (transition t : transitions)
+		{		
+			if (s[0] == t.departure)
+			{	 
+				int tmpDep = counter;
+				int tmpDest = 0;
+				int counter2 = 0;
+				
+				for (auto s2 : eqclass)
+				{
+					if (find(s2.begin(), s2.end(), t.destination) != s2.end())
+				       		tmpDest = counter2;
+					counter2++;
+				}
+					
+				transition tmpTrans;
+				tmpTrans.departure = tmpDep;
+				tmpTrans.symbol = t.symbol;
+				tmpTrans.destination = tmpDest;
+				cout << "(" << tmpDep << ", " << t.symbol << ", " << tmpDest << ")" << endl;
+				reduced_transitions.push_back(tmpTrans);
+			}		
+		}
+
+		counter++;
+	}
+
 	tmp_reducedDFA.state = reduced_state;
 	tmp_reducedDFA.symbol = symbol;
 	tmp_reducedDFA.transitions = reduced_transitions;

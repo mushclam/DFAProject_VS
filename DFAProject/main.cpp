@@ -8,7 +8,9 @@ using namespace std;
 
 void printDFA(DFA DFA_to_print)
 {
-	cout << endl << "/*Reduced DFA*/" << endl;
+	int counter = 0;
+
+	cout << endl << "/* Reduced Minimal DFA */" << endl;
 	cout << "{" << endl;  
 
 	cout << "  \"state\": [ ";
@@ -34,20 +36,23 @@ void printDFA(DFA DFA_to_print)
 	cout << "  \"transition\": [" << endl;
 	for (transition t : DFA_to_print.transitions)
 	{
-		cout << "    [ \"" << t.departure << "\", \"" << DFA_to_print.symbol[t.symbol] << "\", \"" << t.destination << "\" ]";
+		cout << "    [ \"" << DFA_to_print.state[t.departure] << "\", \"" << DFA_to_print.symbol[t.symbol] << "\", \"" << DFA_to_print.state[t.destination] << "\" ]";
 	
-		if (&t == &DFA_to_print.transitions.back());
+		//cout << "&t: " << &t << ", &DFA_to_print.transitions.back(): " << &DFA_to_print.transitions.back() << endl;
+		//if (&t != &DFA_to_print.transitions.back())
+		if (counter != (DFA_to_print.transitions.size() - 1))
 			cout << ",";
 		cout << endl;
+		counter++;
 	}
 	cout << "  ]," << endl;
 
-	cout << "  \"startState\": " << "\"" << DFA_to_print.startState << "\"," << endl;
+	cout << "  \"startState\": " << "\"" << DFA_to_print.state[DFA_to_print.startState] << "\"," << endl;
 	
 	cout << "  \"finalState\": [ ";
 	for (int i = 0; i < DFA_to_print.finalState.size(); i++)
 	{
-		cout << "\"" << DFA_to_print.finalState[i] << "\"";
+		cout << "\"" << DFA_to_print.state[DFA_to_print.finalState[i]] << "\"";
 		if (i != (DFA_to_print.finalState.size() - 1))
 			cout << ",";
 		cout << " ";
@@ -60,7 +65,7 @@ void printDFA(DFA DFA_to_print)
 
 int main(int argc, char *argv[])
 {
-	DFAReader reader("dfa.json");
+	DFAReader reader("dfa3.json");
 	DFA myDFA;
 	DFA reducedDFA;
 	reader.parse();
