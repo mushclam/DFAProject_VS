@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
+#include <memory>
 #include "DFA.h"
 #include "DFAReader.h"
 
