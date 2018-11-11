@@ -121,7 +121,7 @@ void printDFA(DFA DFA_to_print)
 		Json::Value _tmp;
 		_tmp.append(DFA_to_print.state[transition.departure]);
 		_tmp.append(DFA_to_print.symbol[transition.symbol]);
-		_tmp.append(DFA_to_print.state[transition.departure]);
+		_tmp.append(DFA_to_print.state[transition.destination]);
 		root["transition"].append(_tmp);
 	}
 	root["startState"] = DFA_to_print.state[DFA_to_print.startState];
