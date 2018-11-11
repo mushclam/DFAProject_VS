@@ -11,7 +11,7 @@ void printDFA(DFA);
 
 int main(int argc, char *argv[])
 {
-	auto targetFile = "dfa2.json";
+	auto targetFile = "dfa.json";
 	
 	if (argc == 2)
 		targetFile = argv[1];

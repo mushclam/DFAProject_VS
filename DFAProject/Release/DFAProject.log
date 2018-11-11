@@ -1,0 +1,40 @@
+﻿  DFA.cpp
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(8): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(11): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(63): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(95): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(110): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(118): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(120): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(132): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(137): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(160): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(167): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(170): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(174): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(185): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(187): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(192): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(194): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(203): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(214): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(217): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(223): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(263): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(267): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfa.cpp(287): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  DFAReader.cpp
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(33): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(57): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(90): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(110): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\j to the w\source\repos\dfaproject\dfaproject\dfareader.cpp(138): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  jsoncpp.cpp
+c:\users\j to the w\source\repos\dfaproject\dfaproject\jsoncpp.cpp(270): warning C4005: '_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\corecrt.h(425): note: '_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES'의 이전 정의를 참조하십시오.
+  main.cpp
+  코드를 생성하고 있습니다.
+  All 1593 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  DFAProject.vcxproj -> C:\Users\J to the W\Source\Repos\DFAProject\Release\DFAProject.exe
