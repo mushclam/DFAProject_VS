@@ -4,29 +4,31 @@ This is DFA Minimal Program Project for `EC3216 Automata Theory` class.
 
 I call this program as `DFAminimal` in below.
 
-`DFAminimal` read json file that have DFA format and print out json file that minimized.
+`DFAminimal` reads a JSON file that has a definition of a DFA in `DFA Format` as below and prints out minimized DFA written in a output JSON file `result.json`.
 
 * DFA Format
 
 ```
 {
-  "state" : [""],           // List of states
-  "symbol" : [""],          // List of symbol
-  "transition" : [["","",""]],  // List of transition that have ["q1", "a", "q2"] format
-  "startState": "",         // One start state
-  "finalState": [""]        // List of final state
+  "state" : [""],               // List of states
+  "symbol" : [""],              // List of symbols
+  "transition" : [["","",""]],  // List of transitions in ["q1", "a", "q2"] format
+  "startState": "",             // Single initial state
+  "finalState": [""]            // List of final states
 }
 ```
 
 ## Getting Started
 
-`DFAminimal` can be used in `Windows` and `Linux` environment.
+`DFAminimal` can be executed in `Windows` and `Linux` environment.
 
-You can enter json file name have DFA format.
+You can enter a name of JSON file which is in `DFA Format`.
 
-If you don't enter file name you want minimize, program is executed by default file name `dfa.json`
+If you don't enter the file name you want to minimize, program is executed by default file `dfa.json`
 
-input file must be json file have DFA format
+Input file must be a JSON file in `DFA Format`.
+
+Output file is saved as `result.json` with minimized DFA described in your input file.
 
 * Windows
 
