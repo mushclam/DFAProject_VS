@@ -4,7 +4,7 @@ This is DFA Minimal Program Project for `EC3216 Automata Theory` class.
 
 I call this program as `DFAminimal` in below.
 
-`DFAminimal` reads a JSON file that has a definition of a DFA in `DFA Format` as below and prints out minimized DFA written in a output JSON file `result.json`.
+`DFAminimal` reads a JSON file that has a definition of a DFA in `DFA Format` as below and prints out minimized DFA written in an output JSON file `result.json`.
 
 * DFA Format
 
@@ -94,7 +94,7 @@ make
 	]
 }
 ```
-**Key of output file is sorted by alphabetical order it because jsoncpp sort all contents in value**
+**Key values of the output file are sorted by alphabetical order because `Jsoncpp` sorts all contents by value**
 
 ## Authors
 
