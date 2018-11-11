@@ -162,6 +162,7 @@
     <None Include="dfa.json" />
     <None Include="dfa2.json" />
     <None Include="dfa3.json" />
+    <None Include="dfa4.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

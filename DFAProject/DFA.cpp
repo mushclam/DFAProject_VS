@@ -182,14 +182,18 @@ void DFA::initMark()
 		}
 	}
 
+	int fullSize = state.size() * (state.size() - 1) / 2;
+	vector<pair<int, int>> _tmpIndist;
+	vector<pair<int, int>> _tmpMark;
+
 	for (int i = 0; i < state.size(); i++)
 	{
 		for (int j = i + 1; j < state.size(); j++)
 		{
 			pair<int, int> _testDepart = make_pair(i, j);
-			auto _tmpos = find(mark.begin(), mark.end(), _testDepart);
-			auto pos = distance(mark.begin(), _tmpos);
-			if (pos < mark.size()) { continue; }
+			auto _tmpos1 = find(mark.begin(), mark.end(), _testDepart);
+			auto pos1 = distance(mark.begin(), _tmpos1);
+			if (pos1 < mark.size()) { continue; }
 
 			for (int k = 0; k < symbol.size(); k++)
 			{
@@ -197,13 +201,28 @@ void DFA::initMark()
 				int dest2 = graph[j][k];
 
 				pair<int, int> _testDist = make_pair(graph[i][k], graph[j][k]);
-				auto _tmpos = find(mark.begin(), mark.end(), _testDist);
-				auto pos = distance(mark.begin(), _tmpos);
+				auto _tmpos2 = find(mark.begin(), mark.end(), _testDist);
+				auto pos2 = distance(mark.begin(), _tmpos2);
 
-				if (pos < mark.size())
+				if (pos2 < mark.size())
 				{
 					mark.push_back(_testDepart);
+
+					auto pos3 = distance(_tmpMark.begin(), find(_tmpMark.begin(), _tmpMark.end(), _testDepart));
+					if (pos3 < _tmpMark.size())
+					{
+						auto pos4 = distance(mark.begin(), find(mark.begin(), mark.end(), _tmpIndist[pos3]));
+						if (pos4 >= mark.size())
+						{
+							mark.push_back(_tmpIndist[pos3]);
+						}
+					}
 					break;
+				}
+				else
+				{
+					_tmpIndist.push_back(_testDepart);
+					_tmpMark.push_back(_testDist);
 				}
 			}
 		}
@@ -235,15 +254,10 @@ void DFA::initMark()
 	}
 
 	/* // Print Created Sets of Equivalent Class
-	for (auto eq : eqclass)
+	for (auto i : mark)
 	{
-		for (auto i : eq)
-		{
-			cout << state[i];
-		}
-		cout << endl;
-	}
-	*/
+		cout << "(" << state[i.first] << ", " << state[i.second] << ")" << endl;
+	} */
 }
 
 
