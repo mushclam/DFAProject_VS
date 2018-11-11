@@ -3,6 +3,7 @@
 #include <string>
 #include <utility>
 #include <algorithm>
+#include <sstream>
 #include "transition.h"
 
 #pragma once

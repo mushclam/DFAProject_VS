@@ -1,7 +1,11 @@
+#include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include "DFA.h"
+#include "transition.h"
+#include "json/json.h"
 
 #pragma once
 #ifndef DFAREADER_H

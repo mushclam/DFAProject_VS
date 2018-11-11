@@ -1,6 +1,4 @@
 #include "DFA.h"
-#include <sstream>
-#include <iostream>
 
 using namespace std;
 
@@ -10,19 +8,16 @@ void DFA::createGraph()
 	for (int i = 0; i < state.size(); i++)
 	{
 		graph[i].resize(symbol.size());
-		//vector<edge> edges;
 		for (int j = 0; j < transitions.size(); j++)
 		{
 			if (transitions[j].departure == i)
 			{
-				//edge _tmpEdge(transitions[j].symbol, transitions[j].destination);
-				//edges.push_back(_tmpEdge);
 				graph[i][transitions[j].symbol] = transitions[j].destination;
 			}
 		}
-		//graph.push_back(edges);
 	}
 
+	/* //Print Created Graph
 	for (int i = 0; i < graph.size(); i++)
 	{
 		cout << "graph[" << i << "]: " << endl;
@@ -31,6 +26,7 @@ void DFA::createGraph()
 			cout << "(" << j << ", " << graph[i][j] << ")" << endl;
 		}
 	}
+	*/
 }
 
 
@@ -53,7 +49,9 @@ void DFA::initRemove()
 		{
 			cout << "Inaccessible State [" << i << "] is Removed!" << endl;
 		}
+		cout << endl;
 	}
+	cout << endl;
 
 	state = _tmpState;
 
@@ -236,6 +234,7 @@ void DFA::initMark()
 		}
 	}
 
+	/* // Print Created Sets of Equivalent Class
 	for (auto eq : eqclass)
 	{
 		for (auto i : eq)
@@ -244,6 +243,7 @@ void DFA::initMark()
 		}
 		cout << endl;
 	}
+	*/
 }
 
 
@@ -259,18 +259,20 @@ DFA DFA::initReduce(){
 
 	reduced_state.reserve(eqclass.size());
 	//put eqclass into vector<string> reduced_state
+	cout << "Reduced State: ";
 	for (int i = 0; i < eqclass.size(); i++)
 	{
 		ostr.str("");
 		ostr.clear();
 		for (int j = 0; j < eqclass[i].size(); j++)
 		{
-			cout << "eqclass[" << i << "][" << j << "] = " << state[eqclass[i][j]] << endl;
+			//cout << "eqclass[" << i << "][" << j << "] = " << state[eqclass[i][j]] << endl;
 			ostr << state[eqclass[i][j]];
 		}
 		reduced_state.push_back(ostr.str());
-		cout << "Each reduced state is " << reduced_state[i] << endl;
+		cout << reduced_state[i] << " ";
 	}
+	cout << endl;
 
 	for (auto s : eqclass)
 	{
@@ -278,7 +280,7 @@ DFA DFA::initReduce(){
 		if (find(s.begin(), s.end(), startState) != s.end())
 		{ 	
 			reduced_startState = counter;
-			cout << "reduced_startState: " << counter << endl;
+			//cout << "reduced_startState: " << counter << endl;
 		}
 
 		//find final state
@@ -286,7 +288,7 @@ DFA DFA::initReduce(){
 		{
 			if (find(s.begin(), s.end(), finalState[i]) != s.end()) 
 			{
-				cout << "reduced_finalState: " << counter << endl;
+				//cout << "reduced_finalState: " << counter << endl;
 				reduced_finalState.push_back(counter);
 				break;
 			}			
@@ -312,13 +314,32 @@ DFA DFA::initReduce(){
 				tmpTrans.departure = tmpDep;
 				tmpTrans.symbol = t.symbol;
 				tmpTrans.destination = tmpDest;
-				cout << "(" << tmpDep << ", " << t.symbol << ", " << tmpDest << ")" << endl;
+				//cout << "(" << tmpDep << ", " << t.symbol << ", " << tmpDest << ")" << endl;
 				reduced_transitions.push_back(tmpTrans);
 			}		
 		}
 
 		counter++;
 	}
+
+	// Print Reduced Result
+	cout << "Reduced start state: " << reduced_state[reduced_startState] << endl;
+	cout << "Reduced final state: ";
+	for (auto item : reduced_finalState)
+	{
+		cout << reduced_state[item] << " ";
+	}
+	cout << endl;
+	cout << "Reduced Transition: " << endl;
+	for (auto item : reduced_transitions)
+	{
+		cout << "("
+			<< reduced_state[item.departure] << ", " 
+			<< symbol[item.symbol] << ", " 
+			<< reduced_state[item.destination]
+			<< ")" << endl;
+	}
+	cout << endl << endl;
 
 	tmp_reducedDFA.state = reduced_state;
 	tmp_reducedDFA.symbol = symbol;

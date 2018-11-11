@@ -1,9 +1,4 @@
-#include <iostream>
-#include <fstream>
 #include "DFAReader.h"
-#include "DFA.h"
-#include "transition.h"
-#include "json/json.h"
 #pragma warning(disable:4996)
 
 DFAReader::DFAReader(string inputPath)
