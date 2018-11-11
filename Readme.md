@@ -88,7 +88,7 @@ make
 	"transition" : 
 	[
 		[ "01", "a", "01" ],
-		[ "01", "b", "01" ],
+		[ "01", "b", "35" ],
 		[ "35", "a", "35" ],
 		[ "35", "b", "35" ]
 	]
@@ -104,5 +104,5 @@ make
 
 ## Acknowledgments
 
-* It used `Jsoncpp` library
+* This program uses `Jsoncpp` library
 * Thanks for professor `Changwook Ahn`!
