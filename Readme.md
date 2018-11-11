@@ -4,32 +4,103 @@ This is DFA Minimal Program Project for `EC3216 Automata Theory` class.
 
 I call this program as `DFAminimal` in below.
 
+`DFAminimal` read json file that have DFA format and print out json file that minimized.
+
+* DFA Format
+
+```
+{
+  "state" : [""],           // List of states
+  "symbol" : [""],          // List of symbol
+  "transition" : [["","",""]],  // List of transition that have ["q1", "a", "q2"] format
+  "startState": "",         // One start state
+  "finalState": [""]        // List of final state
+}
+```
+
 ## Getting Started
 
 `DFAminimal` can be used in `Windows` and `Linux` environment.
+
+You can enter json file name have DFA format.
+
+If you don't enter file name you want minimize, program is executed by default file name `dfa.json`
+
+input file must be json file have DFA format
+
 * Windows
-Execute 
 
-## Contributing
+Execute `DFAProject.exe` in `Release/` like below.
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+```
+./DFAProject.exe DFAfileName[dfa.json]
+```
 
-## Versioning
+* Linux
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+1. Build program by using `makefile` at `DFAProject/`
+
+```
+make
+```
+
+2. Run `DFAminimal`
+
+```
+./DFAminimal DFAfileName[dfa.json]
+```
+
+## Examples
+
+* Input DFA file
+```
+{
+  "state": [ "0", "1", "2", "3", "4", "5" ],
+  "symbol": [ "a", "b" ],
+  "transition": [
+    [ "0", "a", "1" ],
+    [ "0", "b", "3" ],
+    [ "1", "a", "0" ],
+    [ "1", "b", "3" ],
+    [ "2", "a", "1" ],
+    [ "2", "b", "4" ],
+    [ "3", "a", "5" ],
+    [ "3", "b", "5" ],
+    [ "4", "a", "3" ],
+    [ "4", "b", "3" ],
+    [ "5", "a", "5" ],
+    [ "5", "b", "5" ]
+  ],
+  "startState": "0",
+  "finalState": [ "3", "5" ]
+}
+```
+
+* Output DFA file
+```
+{
+	"finalState" : [ "35" ],
+	"startState" : "01",
+	"state" : [ "01", "35" ],
+	"symbol" : [ "a", "b" ],
+	"transition" : 
+	[
+		[ "01", "a", "01" ],
+		[ "01", "b", "01" ],
+		[ "35", "a", "35" ],
+		[ "35", "b", "35" ]
+	]
+}
+```
+**Key of output file is sorted by alphabetical order it because jsoncpp sort all contents in value**
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Jinwook Park**
+* **Soohyun Choi**
+* **Songmi Oh**
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* It used `Jsoncpp` library
+* Thanks for professor `Changwook Ahn`!
